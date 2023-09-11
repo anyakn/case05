@@ -3,7 +3,7 @@
 '''
 from textblob import TextBlob
 
-print('Введите текст: ')
+text = input('Введите текст: ')
 print('Предложений : ')
 print('Слов: ')
 print('Слогов: ')
