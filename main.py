@@ -2,10 +2,14 @@
 
 '''
 from textblob import TextBlob
+sentence = str(input())
+
+
+word_count = sentence.count(" ") + 1
 
 text = input('Введите текст: ')
 print('Предложений : ')
-print('Слов: ')
+print('Слов: ', word_count)
 print('Слогов: ')
 print('Средняя длина предложения в словах: ')
 print('Средняя длина слова в слогах: ')
