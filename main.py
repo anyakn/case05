@@ -7,6 +7,10 @@ sentence = str(input())
 
 word_count = sentence.count(" ") + 1
 
+
+
+Sub_analysis = TextBlob(sentence).subjectivity
+
 text = input('Введите текст: ')
 print('Предложений : ')
 print('Слов: ', word_count)
@@ -15,4 +19,4 @@ print('Средняя длина предложения в словах: ')
 print('Средняя длина слова в слогах: ')
 print('Индекс удобочитаемости Флэша: ')
 print('Тональность текста: ')
-print('Объективность: ')
+print('Объективность: ', Sub_analysis)
