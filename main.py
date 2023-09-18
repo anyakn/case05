@@ -3,58 +3,61 @@
 '''
 from textblob import TextBlob
 from googletrans import Translator
+import ru_local as ru
 
-sentence = input('Введите текст: ')
+sentence = input(ru.start)
 
 translator = Translator()
 translation = translator.translate(sentence)
 trans = translation.text
 
-sentences_count = trans.count('.') + trans.count('?') + trans.count('!') + trans.count('...')
+sentences_count = sentence.count('.') + sentence.count('?') + sentence.count('!') + sentence.count('...')
+if sentences_count == 0:
+    sentences_count = 1
 
-words_count = trans.count(" ") + 1
+words_count = sentence.count(" ") + 1
 
-vowels_count = 'AEIOUYaeiouy'
-tsll_en = 0
-for i in range(len(trans)):
-    if trans[i] in vowels_count:
-        tsll_en = tsll_en + 1
+vowels_count = 'AEIOUYaeiouyауоыиэяюёеАУОЫИЭЯЮЕЁ'
+tsll_count = 0
+for i in range(len(sentence)):
+    if sentence[i] in vowels_count:
+        tsll_count = tsll_count + 1
 
 sentiment = TextBlob(trans).polarity
 if sentiment == 0:
-    sent = 'нейтральный'
+    sent = ru.neutral
 elif sentiment > 0:
-    sent = 'положительный'
+    sent = ru.positive
 else:
-    sent = 'отрицательный'
+    sent = ru.negative
 
 subjectivity = TextBlob(trans).subjectivity
 percentage = str(round(subjectivity * 100))
 
 ASL = words_count / sentences_count
-ASW = tsll_en / words_count
+ASW = tsll_count / words_count
 
 fre_en = 206.835 - 1.015 * ASL - 84.6 * ASW
 
 
 if fre_en >= 0 and fre_en <= 30:
-    print('Текст с очень низким уровнем удобочитаемости (уровень образования: выпускник колледжа.')
+    print(ru.fre_en1)
 elif fre_en > 30 and fre_en <= 50:
-    print('Текст с низким уровнем удобочитаемости (уровень образования: колледж).')
+    print(ru.fre_en2)
 elif fre_en > 50 and fre_en <= 60:
-    print ('Текст с уровнем удобочитаемости ниже среднего (уровень образования: 10-12 классов).')
+    print(ru.fre_en3)
 elif fre_en > 60 and fre_en <= 70:
-    print('Текст со средним уровнем удобочитаемости (уровень образования: 8-9 классов).')
+    print(ru.fre_en4)
 elif fre_en > 70 and fre_en <= 80:
-    print('Текст с уровнем удобочитаемости выше среднего (уровень образования: 7 классов).')
+    print(ru.fre_en5)
 elif fre_en > 80 and fre_en <= 90:
-    print('Текст с высоким уровнем удобочитаемости (уровень образования: 6 классов).')
+    print(ru.fre_en6)
 elif fre_en > 90 and fre_en <= 100:
-    print('Текст с очень высоким уровнем удобочитаемости (уровень образования: 5 классов).')
+    print(ru.fre_en7)
 
 print('Предложений : ', sentences_count)
 print('Слов: ', words_count)
-print('Слогов: ', tsll_en)
+print('Слогов: ', tsll_count)
 print('Средняя длина предложения в словах: ', ASL)
 print('Средняя длина слова в слогах: ', ASW)
 print('Индекс удобочитаемости Флэша: ', fre_en)
