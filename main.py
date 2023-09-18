@@ -9,16 +9,16 @@ word_count = sentence.count(" ") + 1
 
 sentences = sentence.count('.') + sentence.count('?') + sentence.count('!') + sentence.count('...')
 
+vowels.en = 'AEIOUYaeiouy'
 tsll = 0
-vowels = set('aeiou')
-for letter in s:
-    if letter in vowels:
-        tsll += 1
+for i in range(len(sentence)):
+    if sentence[i] in vowels.en:
+        tsll = tsll + 1
 
 sentiment = TextBlob(sentence).polarity
 if sentiment == 0:
     sent = 'нейтральный'
-elif sentiment >0:
+elif sentiment > 0:
     sent = 'положительный'
 else:
     sent = 'отрицательный'
