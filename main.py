@@ -39,7 +39,12 @@ ASW = tsll_count / words_count
 
 fre_en = 206.835 - 1.015 * ASL - 84.6 * ASW
 
-
+print(ru.sentences, sentences_count)
+print(ru.words, words_count)
+print(ru.tsll, tsll_count)
+print(ru.av_words, ASL)
+print(ru.av_tsll, ASW)
+print(ru.flesh, fre_en)
 if fre_en <= 30:
     print(ru.fre_en1)
 elif fre_en > 30 and fre_en <= 50:
@@ -54,12 +59,5 @@ elif fre_en > 80 and fre_en <= 90:
     print(ru.fre_en6)
 elif fre_en > 90 and fre_en <= 100:
     print(ru.fre_en7)
-
-print(ru.sentences, sentences_count)
-print(ru.words, words_count)
-print(ru.tsll, tsll_count)
-print(ru.av_words, ASL)
-print(ru.av_tsll, ASW)
-print(ru.flesh, fre_en)
 print(ru.sent + sent)
 print(ru.subj + percentage + '%')
