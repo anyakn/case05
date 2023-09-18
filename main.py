@@ -9,16 +9,15 @@ sentence = input('Введите текст: ')
 translator = Translator()
 translation = translator.translate(sentence)
 trans = translation.text
-print(trans)
 
-sentences = trans.count('.') + trans.count('?') + trans.count('!') + trans.count('...')
+sentences_count = trans.count('.') + trans.count('?') + trans.count('!') + trans.count('...')
 
-word_count = sentence.count(" ") + 1
+words_count = trans.count(" ") + 1
 
-vowels_en = 'AEIOUYaeiouy'
+vowels_count = 'AEIOUYaeiouy'
 tsll_en = 0
 for i in range(len(trans)):
-    if trans[i] in vowels_en:
+    if trans[i] in vowels_count:
         tsll_en = tsll_en + 1
 
 sentiment = TextBlob(trans).polarity
@@ -29,10 +28,11 @@ elif sentiment > 0:
 else:
     sent = 'отрицательный'
 
-Sub_analysis = TextBlob(sentence).subjectivity
+subjectivity = TextBlob(trans).subjectivity
+percentage = str(round(subjectivity * 100))
 
-ASL = word_count / sentences
-ASW = tsll_en / word_count
+ASL = words_count / sentences_count
+ASW = tsll_en / words_count
 
 fre_en = 206.835 - 1.015 * ASL - 84.6 * ASW
 
@@ -52,11 +52,11 @@ elif fre_en > 80 and fre_en <= 90:
 elif fre_en > 90 and fre_en <= 100:
     print('Текст с очень высоким уровнем удобочитаемости (уровень образования: 5 классов).')
 
-print('Предложений : ', sentences)
-print('Слов: ', word_count)
+print('Предложений : ', sentences_count)
+print('Слов: ', words_count)
 print('Слогов: ', tsll_en)
 print('Средняя длина предложения в словах: ', ASL)
 print('Средняя длина слова в слогах: ', ASW)
 print('Индекс удобочитаемости Флэша: ', fre_en)
 print('Тональность текста: ' + sent)
-print('Объективность: ', Sub_analysis)
+print('Объективность: ' + percentage + '%')

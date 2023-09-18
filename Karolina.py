@@ -1,9 +1,9 @@
 from textblob import TextBlob
 
 sentence = str(input())
-word_count = sentence.count(" ") + 1
-print("Количество слов в строке:", word_count)
+words_count = sentence.count(" ") + 1
+print("Количество слов в строке:", words_count)
 
-Subject = TextBlob(sentence).subjectivity
+subject = TextBlob(sentence).subjectivity
 
-print('Объективность: ', Subject)
+print('Объективность: ', subject)
