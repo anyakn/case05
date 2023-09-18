@@ -16,8 +16,8 @@ sentences = sentence.count('.') + sentence.count('?') + sentence.count('!') + se
 
 vowels_en = 'AEIOUYaeiouy'
 tsll_en = 0
-for i in range(len(sentence)):
-    if sentence[i] in vowels_en:
+for i in range(len(trans)):
+    if trans[i] in vowels_en:
         tsll_en = tsll_en + 1
 
 sentiment = TextBlob(sentence).polarity
