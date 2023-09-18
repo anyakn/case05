@@ -2,17 +2,18 @@
 
 '''
 from textblob import TextBlob
+from googletrans import Translator
+
 sentence = input('Введите текст: ')
 
-from googletrans import Translator
 translator = Translator()
 translation = translator.translate(sentence)
 trans = translation.text
 print(trans)
 
-word_count = sentence.count(" ") + 1
+sentences = trans.count('.') + trans.count('?') + trans.count('!') + trans.count('...')
 
-sentences = sentence.count('.') + sentence.count('?') + sentence.count('!') + sentence.count('...')
+word_count = sentence.count(" ") + 1
 
 vowels_en = 'AEIOUYaeiouy'
 tsll_en = 0
@@ -20,7 +21,7 @@ for i in range(len(trans)):
     if trans[i] in vowels_en:
         tsll_en = tsll_en + 1
 
-sentiment = TextBlob(sentence).polarity
+sentiment = TextBlob(trans).polarity
 if sentiment == 0:
     sent = 'нейтральный'
 elif sentiment > 0:
