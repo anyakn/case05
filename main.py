@@ -1,5 +1,8 @@
 '''
-
+22704
+Кнопова Анна
+Балан Каролина
+Шилкова Ульяна
 '''
 from textblob import TextBlob
 from googletrans import Translator
