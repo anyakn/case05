@@ -48,3 +48,9 @@ elif fre.ru > 80 and fre.ru <= 90:
     print('Текст с высоким уровнем удобочитаемости (уровень образования: 6 классов).')
 elif fre.ru > 90 and fre.ru <= 100:
     print('Текст с очень высоким уровнем удобочитаемости (уровень образования: 5 классов).')
+
+vowels_ru = 'ауоыиэяюёеАУОЫИЭЯЮЕЁ'
+tsll_ru = 0
+for i in range(len(sentence)):
+    if sentence[i] in vowels_ru:
+        tsll_ru = tsll_ru + 1

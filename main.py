@@ -20,12 +20,6 @@ for i in range(len(sentence)):
     if sentence[i] in vowels_en:
         tsll_en = tsll_en + 1
 
-vowels_ru = 'ауоыиэяюёеАУОЫИЭЯЮЕЁ'
-tsll_ru = 0
-for i in range(len(sentence)):
-    if sentence[i] in vowels_ru:
-        tsll_ru = tsll_ru + 1
-
 sentiment = TextBlob(sentence).polarity
 if sentiment == 0:
     sent = 'нейтральный'
