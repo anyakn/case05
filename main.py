@@ -23,7 +23,6 @@ elif sentiment >0:
 else:
     sent = 'отрицательный'
 
-
 Sub_analysis = TextBlob(sentence).subjectivity
 
 ASL = word_count / sentences
