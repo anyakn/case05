@@ -40,7 +40,7 @@ ASW = tsll_count / words_count
 fre_en = 206.835 - 1.015 * ASL - 84.6 * ASW
 
 
-if fre_en >= 0 and fre_en <= 30:
+if fre_en <= 30:
     print(ru.fre_en1)
 elif fre_en > 30 and fre_en <= 50:
     print(ru.fre_en2)
