@@ -1,4 +1,11 @@
+
+sentence = input('Введите текст: ')
 from googletrans import Translator
+translator = Translator()
+translation = translator.translate(sentence)
+trans = translation.text
+print(trans)
+
 #a = input('Введите текст: ')
 #translator = Translator()
 #result = translator.translate('Привет!')

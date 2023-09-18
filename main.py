@@ -4,6 +4,11 @@
 from textblob import TextBlob
 sentence = input('Введите текст: ')
 
+from googletrans import Translator
+translator = Translator()
+translation = translator.translate(sentence)
+trans = translation.text
+print(trans)
 
 word_count = sentence.count(" ") + 1
 
