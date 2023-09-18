@@ -32,7 +32,7 @@ else:
 Sub_analysis = TextBlob(sentence).subjectivity
 
 ASL = word_count / sentences
-ASW = tsll / word_count
+ASW = tsll_en / word_count
 
 fre_en = 206.835 - 1.015 * ASL - 84.6 * ASW
 
@@ -55,7 +55,7 @@ elif fre_en > 90 and fre_en <= 100:
 
 print('Предложений : ', sentences)
 print('Слов: ', word_count)
-print('Слогов: ', tsll)
+print('Слогов: ', tsll_en)
 print('Средняя длина предложения в словах: ', ASL)
 print('Средняя длина слова в слогах: ', ASW)
 print('Индекс удобочитаемости Флэша: ', fre_en)
