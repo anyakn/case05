@@ -17,7 +17,7 @@ if sentences_count == 0:
 
 words_count = sentence.count(" ") + 1
 
-vowels_count = 'AEIOUYaeiouyауоыиэяюёеАУОЫИЭЯЮЕЁ'
+vowels_count = ru.vowls
 tsll_count = 0
 for i in range(len(sentence)):
     if sentence[i] in vowels_count:
@@ -55,11 +55,11 @@ elif fre_en > 80 and fre_en <= 90:
 elif fre_en > 90 and fre_en <= 100:
     print(ru.fre_en7)
 
-print('Предложений : ', sentences_count)
-print('Слов: ', words_count)
-print('Слогов: ', tsll_count)
-print('Средняя длина предложения в словах: ', ASL)
-print('Средняя длина слова в слогах: ', ASW)
-print('Индекс удобочитаемости Флэша: ', fre_en)
-print('Тональность текста: ' + sent)
-print('Объективность: ' + percentage + '%')
+print(ru.sentences, sentences_count)
+print(ru.words, words_count)
+print(ru.tsll, tsll_count)
+print(ru.av_words, ASL)
+print(ru.av_tsll, ASW)
+print(ru.flesh, fre_en)
+print(ru.sent + sent)
+print(ru.subj + percentage + '%')
