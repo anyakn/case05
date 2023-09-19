@@ -1,8 +1,8 @@
 '''
 22704
-Кнопова Анна
-Балан Каролина
-Шилкова Ульяна
+Кнопова Анна 50
+Балан Каролина 45
+Шилкова Ульяна 45
 '''
 from textblob import TextBlob
 from googletrans import Translator
